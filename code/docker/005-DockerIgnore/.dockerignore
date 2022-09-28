@@ -1,0 +1,9 @@
+docs
+
+*.md 
+
+Dockerfile
+
+.dockerignore
+
+!index.md
