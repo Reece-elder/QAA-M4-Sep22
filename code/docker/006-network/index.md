@@ -13,9 +13,9 @@ Creating an nginx container with conf to reverse proxy to our task1 container
 `touch Dockerfile nginx.conf`  Add contents of files
 
 Running our code but assigning it to a network
-`docker run -d -p 5500:5500 --name webapp task1 --network custom-network`
+`docker run -d --network custom-network -p 5500:5500 --name webapp task1 `
 
 Create and run our Dockerfile for nginx image
 
 Run our nginx container and assign it to the network
-`docker run -d -p 80:80 --name network-proxy3 network-proxy2 --network custom-network`
+`docker run -d --network custom-network -p 80:80 --name network-proxy3 network-proxy2 `
