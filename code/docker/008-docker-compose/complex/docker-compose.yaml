@@ -1,0 +1,20 @@
+version: "3.8"
+services: 
+  nginx:
+    image: nginx
+    # container_name: cool-nginx - Can only specify the container name if you aren't using replicas  
+    ports:
+    # target port is the port on container
+    - target: 80
+    deploy:
+      replicas: 3
+    # Add environment variables with the environment tag
+    environment: 
+      COOL_VAR: helloWorld
+    # Adding bind mounts and volums
+    volumes:
+    - type: bind
+      source: ./nginx.conf
+      target: /etc/nginx/nginx.conf
+
+

@@ -1,0 +1,12 @@
+version: "3.8"
+services: 
+  python:
+    image: nginx
+    # ports: 
+    # - "80:65"
+    # - "81:36"
+    # - "82:14"
+    deploy:
+      replicas: 3
+
+
