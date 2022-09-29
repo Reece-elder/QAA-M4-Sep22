@@ -1,0 +1,12 @@
+# The version of docker-compose
+version: "3.8"
+# Services are what you want your compose to run
+services:
+  # nginx is the name of our container
+  nginx: 
+    # image is the image we're using
+    image: nginx
+    ports: 
+    - "80:80"
+    - "52:80"
+    - "36:80"
