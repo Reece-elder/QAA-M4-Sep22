@@ -23,3 +23,6 @@ spec:
     image: reeceqa/python-frontend
     ports:
     - containerPort: 5000
+
+# Access the app by running apply for all files and accessing <load balancer ip>:5000
+# Delete all resources `kubectl delete -f .`
