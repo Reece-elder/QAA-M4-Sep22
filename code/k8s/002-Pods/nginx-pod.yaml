@@ -1,0 +1,26 @@
+--- 
+# Within yaml, you can add as many 'config files' as you want, each --- indicates a 'new file'
+
+# What version of k8s APi to use
+apiVersion: v1
+# What resource to create
+kind: Pod
+# Metadata is extra data that the pod can access (data about the data)
+metadata:
+  # The name of this resource (name must be lower case)
+  name: nginx-pod 
+  # Key value pairs we can assign to this resource
+  labels:
+    app: nginx
+# What is the pod for
+spec:
+  # What containers does the pod contain
+  containers: 
+    # Names of the container
+  - name: nginx
+    # Image we want to use
+    image: nginx
+    # What ports to use for the container
+    ports:
+      # The accesible port on this pod
+    - containerPort: 80
