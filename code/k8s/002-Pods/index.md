@@ -20,3 +20,5 @@ Manifests are written in yaml (yml) and are similar to Docker Compose
 `exec` - Logging into a pod
 `-it`  - Interactive terminal
 `sh`   - shell 
+
+`mysql -u root -p` enter your password after
