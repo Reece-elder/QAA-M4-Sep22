@@ -1,0 +1,29 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-lb
+spec: 
+  # The spec of our service is what it is doing
+  # Selector is used to find resources with this key value pair (label)
+  selector:
+    app: nginx
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  # What type of service this is: LoadBalancer
+  type: LoadBalancer
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod
+  labels:
+    app: nginx
+spec: 
+  containers:
+  - name: nginx
+    image: nginx
+    ports:
+    - containerPort: 80
