@@ -24,3 +24,7 @@ spec:
     ports:
       # The accesible port on this pod
     - containerPort: 80
+    # Environment variables we can add to our pods
+    env: 
+    - name: PUBLIC_VAR
+      value: "Cool variable"
