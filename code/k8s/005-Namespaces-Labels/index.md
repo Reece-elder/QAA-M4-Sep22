@@ -23,7 +23,7 @@ metadata:
     key: value
 ```
 
-`kubectl get pods -l key=value` - Will search in the default namespace for all pods with that label 
+`kubectl get pods -l app=nginx` - Will search in the default namespace for all pods with that label 
 
 # Namespaces 
 Namespaces are ways of creating 'sub clusters' within a cluster
