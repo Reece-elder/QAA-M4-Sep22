@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata: 
+  name: nginx-controller
+  labels:
+    app: nginx
+# Spec is what this resource does
+spec:
+  # Specifying the pod we're interested in to create 4 of them
+  replicas: 4
+  selector:
+    matchLabels:
+      app: nginx-pod
+  # Directives for our deployment to follow
+  strategy:
+    rollingUpdate:
+      # Max number of extra pods created during update (to account for updating pods)
+      maxSurge: 25% 
+      # How many pods are updated at once
+      maxUnavailable: 25%
+# Templates are plans for resources you are wanting to create as part of this resource
+  template:
+    metadata:
+      name: nginx-pod
+      labels:
+        app: nginx-pod
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+
+
+# kubectl apply -f <file name>
+# kubectl scale deployment/nginx-controller --replicas=10 - setting the value of replicas to be 10
+# kubectl set image deployment/nginx-controller nginx=nginx:alpine
