@@ -1,0 +1,20 @@
+# We will use yaml to create a Namespace
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dev-ns
+  labels:
+    app: python
+# Create a namespace via command line with `kubectl create ns dev-ns`
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: python-app
+  labels:
+    app: python
+  namespace: dev-ns
+spec: 
+  containers:
+  - name: python
+    image: python
