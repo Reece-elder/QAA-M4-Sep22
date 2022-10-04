@@ -33,3 +33,22 @@ spec:
 # kubectl apply -f <file name>
 # kubectl scale deployment/nginx-controller --replicas=10 - setting the value of replicas to be 10
 # kubectl set image deployment/nginx-controller nginx=nginx:alpine
+
+# Services 'Generally' are used to cover all pods of a certain type
+# LoadBalancer - Balance loads between ALL front end pods
+# ClusterIP used to balance loads between two groups of internal pods 
+
+# Deployment doesnt generate a service, we just create one separately 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-lb
+spec:
+  type: LoadBalancer
+  selector:
+    app: nginx-pod
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
